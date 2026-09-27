@@ -1,0 +1,799 @@
+/* =========================
+   1. General Settings
+========================= */
+
+:root {
+    --background: #0b1120;
+    --surface: #111b2e;
+    --surface-light: #172338;
+
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+
+    --border: #263449;
+
+    --js-color: #f7df1e;
+    --js-dark: #25220b;
+
+    --python-color: #3776ab;
+    --python-light: #5ba4e5;
+
+    --container-width: 1120px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.8;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(
+        var(--container-width),
+        calc(100% - 48px)
+    );
+
+    margin-inline: auto;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+
+/* =========================
+   2. Header
+========================= */
+
+.header {
+    border-bottom: 1px solid var(--border);
+    background: var(--background);
+}
+
+.navbar {
+    min-height: 88px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* Logo */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--js-color);
+    color: #111827;
+
+    border-radius: 10px;
+
+    font-family: monospace;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.logo-text {
+    font-size: 23px;
+    font-weight: bold;
+    line-height: 1.3;
+    direction: ltr;
+    text-align: right;
+}
+
+.logo-text > span {
+    color: var(--js-color);
+}
+
+.logo-text small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+    font-weight: normal;
+    direction: rtl;
+}
+
+
+/* Navigation */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    font-size: 14px;
+
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--js-color);
+}
+
+.nav-button {
+    padding: 10px 18px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    transition: 0.2s ease;
+}
+
+.nav-button:hover {
+    border-color: var(--js-color);
+    color: var(--js-color);
+}
+
+
+/* =========================
+   3. Hero Section
+========================= */
+
+.hero {
+    padding: 100px 0 110px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+
+    align-items: center;
+    gap: 80px;
+}
+
+.eyebrow {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: var(--js-color);
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    margin-bottom: 24px;
+
+    font-size: clamp(38px, 5vw, 58px);
+    line-height: 1.45;
+    letter-spacing: -1.5px;
+}
+
+.hero h1 span {
+    color: var(--js-color);
+}
+
+.hero-text > p {
+    max-width: 540px;
+
+    color: var(--text-muted);
+
+    font-size: 16px;
+    line-height: 2.1;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+
+    margin-top: 32px;
+}
+
+.btn {
+    min-height: 48px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 10px 22px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--js-color);
+    color: #151515;
+}
+
+.btn-primary:hover {
+    background: #ffe94f;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.btn-secondary:hover {
+    border-color: var(--text-muted);
+}
+
+
+/* =========================
+   4. Code Window
+========================= */
+
+.hero-card {
+    width: 100%;
+    max-width: 480px;
+    justify-self: end;
+}
+
+.code-window {
+    overflow: hidden;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.window-header {
+    min-height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    border-bottom: 1px solid var(--border);
+
+    color: var(--text-muted);
+    font-size: 12px;
+    direction: ltr;
+}
+
+.window-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.window-dots span {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+    background: #526078;
+}
+
+.window-dots span:first-child {
+    background: #e5a04b;
+}
+
+.window-dots span:nth-child(2) {
+    background: #d4c45a;
+}
+
+.window-dots span:last-child {
+    background: #5c9d7b;
+}
+
+.code-content {
+    min-height: 220px;
+
+    padding: 32px 24px;
+
+    direction: ltr;
+    text-align: left;
+
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    line-height: 2.5;
+
+    overflow-x: auto;
+}
+
+.code-content p {
+    white-space: nowrap;
+}
+
+.code-content .indent {
+    padding-left: 24px;
+}
+
+.code-purple {
+    color: #c792ea;
+}
+
+.code-yellow {
+    color: var(--js-color);
+}
+
+.code-green {
+    color: #a5d6a7;
+}
+
+.code-comment {
+    margin-top: 14px;
+    color: #71839b;
+}
+
+.code-footer {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 14px 20px;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    background: #65c18c;
+    border-radius: 50%;
+}
+
+
+/* =========================
+   5. Section Headings
+========================= */
+
+.section-heading {
+    margin-bottom: 44px;
+    text-align: center;
+}
+
+.section-heading h2 {
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+.section-heading p {
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+
+/* =========================
+   6. Platform Cards
+========================= */
+
+.platforms {
+    background: #0d1525;
+}
+
+.platform-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.platform-card {
+    padding: 32px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.platform-card:hover {
+    transform: translateY(-4px);
+}
+
+.platform-card.javascript:hover {
+    border-color: var(--js-color);
+}
+
+.platform-card.python:hover {
+    border-color: var(--python-color);
+}
+
+.platform-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+}
+
+.platform-tag {
+    padding: 5px 12px;
+
+    border-radius: 5px;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    direction: ltr;
+}
+
+.javascript .platform-tag {
+    background: #302d17;
+    color: var(--js-color);
+}
+
+.python .platform-tag {
+    background: #172d43;
+    color: var(--python-light);
+}
+
+.platform-icon {
+    width: 60px;
+    height: 60px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 10px;
+
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+
+    direction: ltr;
+}
+
+.javascript .platform-icon {
+    background: var(--js-color);
+    color: #151515;
+}
+
+.python .platform-icon {
+    background: var(--python-color);
+    color: #ffffff;
+}
+
+.platform-card h3 {
+    margin-bottom: 12px;
+    font-size: 23px;
+}
+
+.platform-card > p {
+    min-height: 84px;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+    line-height: 2;
+}
+
+.platform-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 24px;
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: 0.2s ease;
+}
+
+.javascript .platform-link {
+    color: var(--js-color);
+}
+
+.python .platform-link {
+    color: var(--python-light);
+}
+
+.platform-link span {
+    font-size: 20px;
+    transition: transform 0.2s ease;
+}
+
+.platform-link:hover span {
+    transform: translateX(-5px);
+}
+
+
+/* =========================
+   7. About Section
+========================= */
+
+.about {
+    border-bottom: 1px solid var(--border);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 0.65fr 1.35fr;
+    gap: 70px;
+
+    align-items: start;
+}
+
+.about-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.about-mark {
+    display: grid;
+    place-items: center;
+
+    width: 52px;
+    height: 52px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    color: var(--js-color);
+
+    font-family: monospace;
+    font-size: 17px;
+}
+
+.about-text h2 {
+    margin-bottom: 22px;
+
+    font-size: 32px;
+    line-height: 1.7;
+}
+
+.about-text h2 span {
+    color: var(--js-color);
+}
+
+.about-text p {
+    color: var(--text-muted);
+
+    font-size: 15px;
+    line-height: 2.2;
+}
+
+
+/* =========================
+   8. Features
+========================= */
+
+.features {
+    padding-top: 80px;
+    padding-bottom: 100px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.feature {
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+}
+
+.feature-number {
+    color: var(--js-color);
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.feature h3 {
+    margin: 12px 0 8px;
+    font-size: 19px;
+}
+
+.feature p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+
+/* =========================
+   9. Footer
+========================= */
+
+.footer {
+    padding: 28px 0;
+
+    background: #080e19;
+    border-top: 1px solid var(--border);
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.footer-content > p {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+
+/* =========================
+   10. Responsive Design
+========================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        flex-wrap: wrap;
+        padding: 18px 0;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .hero-card {
+        max-width: 600px;
+        justify-self: stretch;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .container {
+        width: calc(100% - 32px);
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .navbar {
+        gap: 20px;
+    }
+
+    .logo-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .logo-text {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 70px 0;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero-text > p {
+        font-size: 14px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .code-content {
+        padding: 24px 16px;
+        font-size: 12px;
+    }
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+
+    .platform-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .platform-card {
+        padding: 24px;
+    }
+
+    .platform-card > p {
+        min-height: auto;
+    }
+
+    .about-text h2 {
+        font-size: 27px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
